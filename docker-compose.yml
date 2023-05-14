@@ -8,11 +8,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    volumes:
-      - ./next/.env:/next/.env
-      - ./next/:/next/
-      - /next/node_modules
-      - /next/.next
 
   platform:
     container_name: platform
@@ -22,10 +17,6 @@ services:
     ports:
       - "8000:8000"
     restart: always
-    volumes:
-      - ./platform:/app/src/
-    env_file:
-      - next/.env
     environment:
       REWORKD_PLATFORM_HOST: 0.0.0.0
       REWORKD_PLATFORM_DB_HOST: db
